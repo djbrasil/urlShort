@@ -1,0 +1,41 @@
+{# Load the tag library #}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>AppUrl Django</title>
+</head>
+
+<body>
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    <div class="container-sm">
+        <div class="row">
+            <center>
+                <div class="col-4 py-5">
+                    <h1>{{ title }}</h1>
+                    {# Display a form #}
+                    <form action="." method="post" class="form">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                        <button type="submit" class="btn btn-primary">
+                            Gerar Link
+                        </button>
+                        {% endbuttons %}
+                    </form>
+                    {# Read the documentation for more information #}
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>

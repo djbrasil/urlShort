@@ -1,0 +1,36 @@
+{# Load the tag library #}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>AppUrl Django</title>
+</head>
+
+<body>
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    <div class="container-sm">
+        <div class="row">
+            <center>
+                <div class="col-6 py-5">
+                    <h1>Url Já Existe !</h1>
+                    <p>{{ object.url }}</p>
+                    {% if object.clickevent %}<p>Count: {{ object.clickevent.count }}</p>{% endif %}
+                    <p>
+                       <span>Link Encurtado:</span><a href='{{ object.get_short_url }}'>{{ object.get_short_url }}</a>
+                    </p>
+                    <a class="btn btn-primary" href='/'>+ novo</a>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>
